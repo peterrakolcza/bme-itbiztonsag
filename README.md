@@ -1,3 +1,4 @@
+Házi feladatok megoldásai 2022
 # IT biztonság (VIHIAC01)
 A tárgy a BSc mérnök-informatikus program részeként a 6. félévben kerül előadásra. A hivatalos tantárgyi adatlap és tárgykövetelmények a kar szerverén találhatók. Erről az oldalról a tárggyal kapcsolatos legfrisseb adminisztratív információkat és egyéb fontos tudnivalókat lehet letölteni illetve elérni.
 

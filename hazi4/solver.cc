@@ -77,9 +77,6 @@ int main(int argc, char **argv)
     arma::mat A;
     A.set_size(4000, 1000);
     A.fill(0);
-    arma::mat x;
-    x.set_size(1, 1000);
-    x.fill(0);
     arma::mat b;
     b.set_size(1, 4000);
     b.fill(0);
@@ -105,7 +102,7 @@ int main(int argc, char **argv)
 
         A.row(c) = temp;
 
-        if (c == 999) break;
+        //if (c == 999) break;
         c++;
     }
     sqlite3_close(db);
@@ -125,6 +122,21 @@ int main(int argc, char **argv)
     }
     cout << "Atlagos lefedettseg: " << sum / 4000 << endl;
 
+    arma::mat tempForRank;
+    tempForRank.set_size(4000, 1001);
+    tempForRank.fill(0);
+    for (int i = 0; i < 4000; i++)
+    {
+        for (int j = 0; j < 1000; j++)
+        {
+            tempForRank.at(i, j) = A.at(i, j);
+        }
+
+        tempForRank.at(i, 1000) = b.at(0, i);
+        
+    }
+    cout << "Rank: " << arma::rank(tempForRank) << endl;
+
     A = pinv(A);
     b = b.t();
 
@@ -139,8 +151,7 @@ int main(int argc, char **argv)
         
     }
 
-    // x.t();
-    print_mat(res);
+    //print_mat(res);
 
     return 0;
 }
